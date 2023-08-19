@@ -29,10 +29,11 @@ class BertSentClassifier(torch.nn.Module):
         super(BertSentClassifier, self).__init__()
         self.num_labels = config.num_labels
         self.bert = BertModel.from_pretrained('bert-base-uncased')
+        self.output_dropout_prob = self.bert.config.hidden_dropout_prob
 
-        # pretrain mode does not require updating bert paramters.
+        # freeze mode does not require updating bert paramters.
         for param in self.bert.parameters():
-            if config.option == 'pretrain':
+            if config.option == 'freeze':
                 param.requires_grad = False
             elif config.option == 'finetune':
                 param.requires_grad = True
@@ -42,7 +43,7 @@ class BertSentClassifier(torch.nn.Module):
 
     def forward(self, input_ids, attention_mask):
         # todo
-        # the final bert contextualize embedding is the hidden state of [CLS] token (the first token)
+        # the final bert contextual embedding is the hidden state of the [CLS] token (the first token)
         raise NotImplementedError
 
 # create a custom Dataset Class to be used for the dataloader
@@ -253,8 +254,8 @@ def get_args():
     parser.add_argument("--seed", type=int, default=11711)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--option", type=str,
-                        help='pretrain: the BERT parameters are frozen; finetune: BERT parameters are updated',
-                        choices=('pretrain', 'finetune'), default="pretrain")
+                        help='freeze: the BERT parameters are frozen; finetune: BERT parameters are updated',
+                        choices=('freeze', 'finetune'), default="freeze")
     parser.add_argument("--use_gpu", action='store_true')
     parser.add_argument("--dev_out", type=str, default="cfimdb-dev-output.txt")
     parser.add_argument("--test_out", type=str, default="cfimdb-test-output.txt")
@@ -262,7 +263,7 @@ def get_args():
     # hyper parameters
     parser.add_argument("--batch_size", help='sst: 64, cfimdb: 8 can fit a 12GB GPU', type=int, default=8)
     parser.add_argument("--hidden_dropout_prob", type=float, default=0.3)
-    parser.add_argument("--lr", type=float, help="learning rate, default lr for 'pretrain': 1e-3, 'finetune': 1e-5",
+    parser.add_argument("--lr", type=float, help="learning rate, default lr for 'freeze': 1e-3, 'finetune': 1e-5",
                         default=1e-5)
 
     args = parser.parse_args()

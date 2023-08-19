@@ -17,11 +17,11 @@ You will then perform sentence classification on ``sst`` dataset and ``cfimdb`` 
 ```
 mkdir -p ANDREWID
 
-python3 classifier.py --option [pretrain/finetune] --epochs NUM_EPOCHS --lr LR --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt
+python3 classifier.py --option [freeze/finetune] --epochs NUM_EPOCHS --lr LR --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt
 ```
 ## Reference accuracies: 
 
-Pretraining for SST:
+Frozen for SST:
 Dev Accuracy: 0.391 (0.007)
 Test Accuracy: 0.403 (0.008)
 

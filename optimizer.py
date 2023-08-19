@@ -53,8 +53,10 @@ class AdamW(Optimizer):
                 # https://arxiv.org/abs/1412.6980
 
                 # Update parameters
+                # Please note: you should update p.data (not p), to avoid an error about a leaf Variable being used in an in-place operation
 
                 # Add weight decay after the main gradient-based updates.
-                # Please note that the learning rate should be incorporated into this update.
+                # Please note that, *unlike in https://arxiv.org/abs/1711.05101*, the learning rate should be incorporated into this update.
+                # Please also note: you should update p.data (not p), to avoid an error about a leaf Variable being used in an in-place operation
 
         return loss
