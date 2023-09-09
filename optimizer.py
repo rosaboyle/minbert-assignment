@@ -38,6 +38,7 @@ class AdamW(Optimizer):
                 if grad.is_sparse:
                     raise RuntimeError("Adam does not support sparse gradients, please consider SparseAdam instead")
 
+                # todo
                 raise NotImplementedError()
 
                 # State should be stored in this dictionary
