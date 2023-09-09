@@ -3,7 +3,7 @@
 conda create -n bert_hw python=3.10
 conda activate bert_hw
 
-conda instal pytorch==2.0.1 torchvision torchaudio pytorch-cuda=11.7 cudatoolkit=11.7 -c pytorch -c nvidia
+conda install pytorch==2.0.1 torchvision torchaudio pytorch-cuda=11.7 cudatoolkit=11.7 -c pytorch -c nvidia
 pip install tqdm==4.66.1
 pip install requests==2.31.0
 pip install importlib-metadata==6.8.0
