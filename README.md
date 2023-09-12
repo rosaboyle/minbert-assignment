@@ -34,7 +34,7 @@ Test Accuracy: 0.526 (0.008)
 
 Finetuning for CFIMDB:
 Dev Accuracy: 0.966 (0.007)
-Test Accuracy: - (test set contains label error)
+Test Accuracy: - (test labels are withheld)
 
 ### Submission
 
