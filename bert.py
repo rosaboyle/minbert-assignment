@@ -32,6 +32,7 @@ class BertSelfAttention(nn.Module):
     return proj
 
   def attention(self, key, query, value, attention_mask):
+    # todo
     # each attention is calculated following eq (1) of https://arxiv.org/pdf/1706.03762.pdf
     # attention scores are calculated by multiplying query and key 
     # to get back a score matrix S of [bs, num_attention_heads, seq_len, seq_len]
@@ -155,6 +156,7 @@ class BertModel(BertPreTrainedModel):
 
 
     # get position index and position embedding from self.pos_embedding
+    # todo
     pos_ids = self.position_ids[:, :seq_length]
     pos_embeds = None
 

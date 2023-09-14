@@ -12,6 +12,7 @@ You will then perform sentence classification on ``sst`` dataset and ``cfimdb`` 
 * Follow `setup.sh` to properly setup the environment and install dependencies.
 * There is a detailed description of the code structure in [structure.md](./structure.md), including a description of which parts you will need to implement.
 * You are only allowed to use libraries that are installed by `setup.sh`, no other external libraries are allowed (e.g., `transformers`).
+    * Please run it with `source setup.sh` instead of `./setup.sh`.
 * We will run your code with the following commands, so make sure that whatever your best results are reproducible using these commands (where you replace ANDREWID with your lowercase Andrew ID):
     * Do not change any of the existing command options (including defaults) or add any new required parameters
 ```
@@ -33,7 +34,7 @@ Test Accuracy: 0.526 (0.008)
 
 Finetuning for CFIMDB:
 Dev Accuracy: 0.966 (0.007)
-Test Accuracy: -
+Test Accuracy: - (test labels are withheld)
 
 ### Submission
 

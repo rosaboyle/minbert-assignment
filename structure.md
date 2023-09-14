@@ -30,7 +30,7 @@ The desired outputs are
 2. ```pooler_output```: the [CLS] token embedding
 
 ### To be implemented
-Components that require your implementations are comment with ```#todo```. The detailed instructions can be found in their corresponding code blocks
+Components that require your implementations are comment with ```# todo```. The detailed instructions can be found in their corresponding code blocks
 * ```bert.BertSelfAttention.attention``` 
 * ```bert.BertLayer.add_norm```
 * ```bert.BertLayer.forward```
