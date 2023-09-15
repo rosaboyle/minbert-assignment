@@ -41,8 +41,7 @@ Test Accuracy: - (test labels are withheld)
 We are asking you to submit in two ways:
 1. *Canvas:* a full code package, which will be checked by the TAs in the 1-2 weeks 
    after the assignment for its executability.
-2. *ExplainaBoard:* which will score your assignment immediately, so you can make sure
-   that your accuracy matches what you would expect.
+2. *Outputs:* we will ask you to submit your system outputs, in case there are any problems executing your code.
 
 #### Canvas Submission
 
@@ -82,42 +81,10 @@ Usage:
 Please double check this before you submit to Canvas; most recently we had about 10/100
 students lose a 1/3 letter grade because of an improper submission format.
 
-#### ExplainaBoard Submission
+#### Outputs Submission
 
-To submit your outputs via [ExplainaBoard](https://explainaboard.inspiredco.ai), first
-click the top-right of the site to log in, and then again click the top-right to view
-your API key. Run the following to save your email and API key to environmental
-variables:
+We will have you submit your system outputs in case of any problems with running your code. This submission will likely be done via Kaggle -- we'll update with instructions on how to do this soon.
 
-```
-export EB_EMAIL=your_email_used_for_explainaboard
-export EB_API_KEY=your_api_key_for_explainaboard
-export EB_ANDREW_ID=your_andrew_id
-```
-
-Now you can upload the outputs of your model with the `upload_results.py` script. There
-are the following options.
-
-* `--system_name` a name that you can choose for your system. Your final system name
-  will be `anlp_{andrewid}_{system_name}`.
-* `--dataset` the dataset name (sst/cfimdb).
-* `--split` the split (dev/test).
-* `--output` the system output you're uploading.
-* `--public` if you want your output listed on the public site so people in the class
-  can compare and contrast with it add this flag. But it is off by default (and has no
-  effect on your grade).
-
-Here is an example of uploading all of the datasets with a system name of `baseline`.
-
-```
-python upload_results.py --system_name baseline --dataset sst --split dev --output sst-dev-output.txt
-python upload_results.py --system_name baseline --dataset sst --split test --output sst-test-output.txt
-python upload_results.py --system_name baseline --dataset cfimdb --split dev --output cfimdb-dev-output.txt
-python upload_results.py --system_name baseline --dataset cfimdb --split test --output cfimdb-test-output.txt
-```
-
-You can then go to the ExplainaBoard systems page to confirm that the results are
-uploaded properly.
 
 ### Grading
 * A+: You additionally implement something else on top of the requirements for A, and achieve significant accuracy improvements. Please write down the things you implemented and experiments you performed in the report. You are also welcome to provide additional materials such as commands to run your code in a script and training logs.
@@ -129,7 +96,7 @@ uploaded properly.
 * B+: All missing pieces are implemented and pass tests in ``sanity_check.py`` (bert implementation) and ``optimizer_test.py`` (optimizer implementation)
 * B or below: Some parts of the missing pieces are not implemented.
 
-If your results can be confirmed through ExplainaBoard, but there are problems with your
+If your results can be confirmed through the submission of your outputs, but there are problems with your
 code submitted through Canvas, such as not being properly formatted, not executing in
 the appropriate amount of time, etc., you will be graded down 1/3 grade.
 
