@@ -41,7 +41,7 @@ Test Accuracy: - (test labels are withheld)
 We are asking you to submit in two ways:
 1. *Canvas:* a full code package, which will be checked by the TAs in the 1-2 weeks 
    after the assignment for its executability.
-2. *Outputs:* we will ask you to submit your system outputs, in case there are any problems executing your code.
+2. *Kaggle:* we will ask you to submit your system outputs to Kaggle, in case there are any problems executing your code.
 
 #### Canvas Submission
 
@@ -81,9 +81,18 @@ Usage:
 Please double check this before you submit to Canvas; most recently we had about 10/100
 students lose a 1/3 letter grade because of an improper submission format.
 
-#### Outputs Submission
+#### Kaggle Submission
 
-We will have you submit your system outputs in case of any problems with running your code. This submission will likely be done via Kaggle -- we'll update with instructions on how to do this soon.
+We will have you submit your system outputs to Kaggle in case of any problems with running your code.
+
+Please create a Kaggle account using your CMU email and submit your *output.csv files for each of the four evaluation sets to the following Kaggle pages. 
+
+sst-dev: https://www.kaggle.com/t/490a691dfb9d4e54ba9e045fd78ac8c0
+sst-test: https://www.kaggle.com/t/0f66dc8812b94027a198d0ea148763e7
+cfimdb-dev: https://www.kaggle.com/t/db7ad612e5ba4117bf5a0f10fb2daa0e
+cfimdb-test: https://www.kaggle.com/t/84f6e5b5b62541dca741812045a190de
+
+While each Kaggle page has a leaderboard, _your rank on it does not count in any way toward your score on this assignment_. We’re just using Kaggle as a way for you to verify your scores immediately, and as a backup in case we cannot run the code you submit to Canvas.
 
 
 ### Grading
