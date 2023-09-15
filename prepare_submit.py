@@ -6,7 +6,7 @@ import os
 import sys
 import zipfile
 
-required_files = {'bert.py', 'optimizer.py', 'classifier.py', 'sst-dev-output.txt', 'sst-test-output.txt', 'cfimdb-dev-output.txt', 'cfimdb-test-output.txt'}
+required_files = {'bert.py', 'optimizer.py', 'classifier.py', 'sst-dev-output.csv', 'sst-test-output.csv', 'cfimdb-dev-output.csv', 'cfimdb-test-output.csv'}
 
 def check_file(file: str, check_aid: str):
     target_prefix = None

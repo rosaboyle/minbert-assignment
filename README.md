@@ -18,7 +18,7 @@ You will then perform sentence classification on ``sst`` dataset and ``cfimdb`` 
 ```
 mkdir -p ANDREWID
 
-python3 classifier.py --option [freeze/finetune] --epochs NUM_EPOCHS --lr LR --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt
+python3 classifier.py --option [freeze/finetune] --epochs NUM_EPOCHS --lr LR --train data/sst-train.csv --dev data/sst-dev.csv --test data/sst-test.csv
 ```
 ## Reference accuracies: 
 
@@ -61,10 +61,10 @@ ANDREWID/
 ├── README.md
 ├── structure.md
 ├── sanity_check.data
-├── sst-dev-output.txt 
-├── sst-test-output.txt 
-├── cfimdb-dev-output.txt 
-├── cfimdb-test-output.txt 
+├── sst-dev-output.csv 
+├── sst-test-output.csv 
+├── cfimdb-dev-output.csv 
+├── cfimdb-test-output.csv 
 └── setup.py
 ```
 
