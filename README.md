@@ -87,10 +87,10 @@ We will have you submit your system outputs to Kaggle in case of any problems wi
 
 Please create a Kaggle account using your CMU email and submit your *output.csv files for each of the four evaluation sets to the following Kaggle pages. 
 
-sst-dev: https://www.kaggle.com/t/490a691dfb9d4e54ba9e045fd78ac8c0
-sst-test: https://www.kaggle.com/t/0f66dc8812b94027a198d0ea148763e7
-cfimdb-dev: https://www.kaggle.com/t/db7ad612e5ba4117bf5a0f10fb2daa0e
-cfimdb-test: https://www.kaggle.com/t/84f6e5b5b62541dca741812045a190de
+* sst-dev: https://www.kaggle.com/t/490a691dfb9d4e54ba9e045fd78ac8c0
+* sst-test: https://www.kaggle.com/t/0f66dc8812b94027a198d0ea148763e7
+* cfimdb-dev: https://www.kaggle.com/t/db7ad612e5ba4117bf5a0f10fb2daa0e
+* cfimdb-test: https://www.kaggle.com/t/84f6e5b5b62541dca741812045a190de
 
 While each Kaggle page has a leaderboard, _your rank on it does not count in any way toward your score on this assignment_. We’re just using Kaggle as a way for you to verify your scores immediately, and as a backup in case we cannot run the code you submit to Canvas.
 
