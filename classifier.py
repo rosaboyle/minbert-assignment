@@ -97,9 +97,9 @@ def create_data(filename, flag='train'):
     labels = df['label']
     orig_sents = df['data']
     for label, orig_sent in zip(labels, orig_sents):
-        sent = org_sent.lower().strip()
+        sent = orig_sent.lower().strip()
         tokens = tokenizer.tokenize("[CLS] " + sent + " [SEP]")
-        label = int(label.strip())
+        label = int(label)
         if label not in num_labels:
             num_labels[label] = len(num_labels)
         data.append((sent, label, tokens))
@@ -242,12 +242,12 @@ def test(args):
         test_acc, test_f1, test_pred, test_true, test_sents = model_eval(test_dataloader, model, device)
 
         print(f"dev acc :: {dev_acc :.3f}")
-        df = pd.DataFrame({'id': list(range(len(dev_sents))), 'data': dev_sents, 'label': dev_pred})
+        df = pd.DataFrame({'ID': list(range(len(dev_sents))), 'label': dev_pred})
         df.to_csv(args.dev_out, index=None)
 
         print(f"test acc :: {test_acc :.3f}")
-        df = pd.DataFrame({'id': list(range(len(test_sents))), 'data': test_sents, 'label': test_pred})
-        df.to_csv(args.test_out)
+        df = pd.DataFrame({'ID': list(range(len(test_sents))), 'label': test_pred})
+        df.to_csv(args.test_out, index=None)
 
 def get_args():
     parser = argparse.ArgumentParser()
