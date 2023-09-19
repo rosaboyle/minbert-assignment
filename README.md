@@ -100,8 +100,8 @@ While each Kaggle page has a leaderboard, _your rank on it does not count in any
     * perform [continued pre-training](https://arxiv.org/abs/2004.10964) using the MLM objective to do domain adaptation
     * try [alternative fine-tuning algorithms](https://www.aclweb.org/anthology/2020.acl-main.197)
     * add other model components on top of the model
-* A: You implement all the missing pieces and the original ``classifier.py`` with ``--option pretrain`` and ``--option finetune`` code that achieves comparable accuracy to our reference implementation.
-* A-: You implement all the missing pieces and the original ``classifier.py`` with ``--option pretrain`` and ``--option finetune`` code but accuracy is not comparable to the reference.
+* A: You implement all the missing pieces and the original ``classifier.py`` with ``--option freeze`` and ``--option finetune`` code that achieves comparable accuracy to our reference implementation.
+* A-: You implement all the missing pieces and the original ``classifier.py`` with ``--option freeze`` and ``--option finetune`` code but accuracy is not comparable to the reference.
 * B+: All missing pieces are implemented and pass tests in ``sanity_check.py`` (bert implementation) and ``optimizer_test.py`` (optimizer implementation)
 * B or below: Some parts of the missing pieces are not implemented.
 
