@@ -39,10 +39,12 @@ Test Accuracy: - (test labels are withheld)
 ### Submission
 
 We are asking you to submit in two ways:
-1. *Canvas:* a full code package, which will be checked by the TAs in the 1-2 weeks 
-   after the assignment for its executability.
+1. *Canvas:* a Zip file containing:
+    - *Code:* a full code package, which will be checked by the TAs in the 1-2 weeks 
+       after the assignment for its executability.
+    - *Report (optional):* Your zip file can include a pdf file, named `ANDREWID-report.pdf`, if (1) you've implemented something else on top of the requirements and further improved accuracy for possible extra points (see "Grading" below), and/or (2) if your best results are with some hyperparameters other than the default, and you want to specify how we should run your code. If you're doing (1), we expect your report should be 1-2 pages, but no more than 3 pages. 
 2. *Kaggle:* we will ask you to submit your system outputs to Kaggle, in case there are any problems executing your code.
-3. *Report (optional):* If (1) you've implemented something else on top of the requirements and further improved accuracy for possible extra points (see "Grading" below), and/or (2) if your best results are with some hyperparameters other than the default, and you want to specify how we should run your code. If you're doing (1), we expect your report should be 1-2 pages, but no more than 3 pages. 
+
 
 #### Canvas Submission
 
