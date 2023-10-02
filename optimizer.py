@@ -38,26 +38,41 @@ class AdamW(Optimizer):
                 if grad.is_sparse:
                     raise RuntimeError("Adam does not support sparse gradients, please consider SparseAdam instead")
 
-                # todo
-                raise NotImplementedError()
-
-                # State should be stored in this dictionary
                 state = self.state[p]
 
                 # Access hyperparameters from the `group` dictionary
-                alpha = group["lr"]
+                lr = group["lr"]
+                beta1, beta2 = group["betas"]
+                eps = group["eps"]
+                weight_decay = group["weight_decay"]
+                correct_bias = group["correct_bias"]
+
+                if len(state) == 0:
+                    state["step"] = 0
+                    state["m"] = torch.zeros_like(p.data)
+                    state["v"] = torch.zeros_like(p.data)
+
+                m, v = state["m"], state["v"]
+                state["step"] += 1
+
+                m.mul_(beta1).add_(grad, alpha=1.0 - beta1)
+                v.mul_(beta2).addcmul_(grad, grad, value=1.0 - beta2)
 
                 # Update first and second moments of the gradients
+                m_hat = m / (1 - beta1 ** state["step"])
+                v_hat = v / (1 - beta2 ** state["step"])
 
-                # Bias correction
-                # Please note that we are using the "efficient version" given in
-                # https://arxiv.org/abs/1412.6980
+                if correct_bias:
+                    step_size = lr / (v_hat.sqrt().add_(eps))
+                else:
+                    step_size = lr
 
                 # Update parameters
                 # Please note: you should update p.data (not p), to avoid an error about a leaf Variable being used in an in-place operation
 
-                # Add weight decay after the main gradient-based updates.
-                # Please note that, *unlike in https://arxiv.org/abs/1711.05101*, the learning rate should be incorporated into this update.
-                # Please also note: you should update p.data (not p), to avoid an error about a leaf Variable being used in an in-place operation
+                p.data.addcmul_(m_hat, step_size, value=-1)
+
+                if weight_decay != 0:
+                    p.data.add_(p.data, alpha=-weight_decay * lr)
 
         return loss
