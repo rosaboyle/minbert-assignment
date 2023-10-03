@@ -55,12 +55,13 @@ class AdamW(Optimizer):
                 m, v = state["m"], state["v"]
                 state["step"] += 1
                 alpha = 1.0 - beta1
-                # m = (m * beta1 ) + (grad*alpha)
+                m1 = (m * beta1 ) + (grad*alpha)
                 m.mul_(beta1).add_(grad, alpha=1.0 - beta1)
-
-                v = (v*beta2) + ((1.0 - beta2)*(grad**2))
-                # v.mul_(beta2).addcmul_(grad, grad, value=1.0 - beta2)
-
+                assert(torch.allclose(m, m1))
+                v1 = (v*beta2) + ((1.0 - beta2)*(grad*grad))
+                # v = v1
+                v.mul_(beta2).addcmul_(grad, grad, value=1.0 - beta2)
+                assert(torch.allclose(v1, v))
                 # Update first and second moments of the gradients
                 m_hat = m / (1 - beta1 ** state["step"])
                 v_hat = v / (1 - beta2 ** state["step"])
