@@ -195,6 +195,7 @@ def train(args):
     lr = args.lr
     ## specify the optimizer
     optimizer = AdamW(model.parameters(), lr=lr)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.3, patience=2, verbose=True)
     best_dev_acc = 0
 
     ## run for the specified number of epochs
@@ -224,7 +225,7 @@ def train(args):
 
         train_acc, train_f1, *_ = model_eval(train_dataloader, model, device)
         dev_acc, dev_f1, *_ = model_eval(dev_dataloader, model, device)
-
+        scheduler.step(dev_acc)
         if dev_acc > best_dev_acc:
             best_dev_acc = dev_acc
             save_model(model, optimizer, args, config, args.filepath)
