@@ -43,7 +43,7 @@ class BertSentClassifier(torch.nn.Module):
         # raise NotImplementedError
         self.hidden_linear_layer = self.bert.config.hidden_size *2
         self.dropout = torch.nn.Dropout(self.output_dropout_prob)
-        self.classifier = torch.nn.Linear(self.hidden_linear_layer , self.num_labels),
+        self.classifier = torch.nn.Linear(self.hidden_linear_layer , self.num_labels)
                 
         
 
