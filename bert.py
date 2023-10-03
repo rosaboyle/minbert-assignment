@@ -55,6 +55,7 @@ class BertSelfAttention(nn.Module):
     bs,  num_attention_heads, seq_len, attention_head_size = val_out.shape
     # mult_head_out = val_out.flatten().view(bs, seq_len, -1)
     mult_head_out = val_out.permute(0, 2, 1, 3).contiguous().view(bs, seq_len, -1)
+
     # assert (mult_head_out.shape[2] == num_attention_heads*attention_head_size)
     return mult_head_out 
 

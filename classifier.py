@@ -41,7 +41,7 @@ class BertSentClassifier(torch.nn.Module):
 
         # # todo
         # raise NotImplementedError
-        self.dropout = torch.nn.Dropout(self.bert.config.hidden_dropout_prob)
+        self.dropout = torch.nn.Dropout(self.output_dropout_prob)
         self.classifier = torch.nn.Linear(self.bert.config.hidden_size, self.num_labels)
         
 
@@ -49,7 +49,7 @@ class BertSentClassifier(torch.nn.Module):
         # todo
         # the final bert contextual embedding is the hidden state of the [CLS] token (the first token)
         outputs = self.bert(input_ids, attention_mask)
-        pooled_output = outputs['pooler_output'][0] # It's 0 right? Or is it 1?
+        pooled_output = outputs['last_hidden_state'][:,0] # It's 0 right? Or is it 1?
         pooled_output = self.dropout(pooled_output)
         logits = self.classifier(pooled_output)
         return logits
@@ -180,7 +180,6 @@ def train(args):
                                 collate_fn=dev_dataset.collate_fn)
 
     #### Init model
-    num_labels = 8 # Adding separately
     config = {'hidden_dropout_prob': args.hidden_dropout_prob,
               'num_labels': num_labels,
               'hidden_size': 768,
